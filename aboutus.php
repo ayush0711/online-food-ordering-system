@@ -201,3 +201,31 @@ ul li {list-style:none;}
     </div>
 	
 </nav>
+<br><br>
+<div class="container-fluid">
+  <img src="img/about.bmp" width='100%'/>
+</div>
+<br><br>
+<div class="container-fluid" style="background:black; opacity:0.30;">
+<h1 style="color:white; text-align:center; text-transform:uppercase;">we do this by</h1>
+<h3 style="color:white; text-align:center; text-transform:uppercase;">Helping people discover great places around them.</h3>
+<p style="color:white; text-align:center; font-size:25px;">Our team gathers information from every restaurant on a regular basis to ensure our data is fresh. Our vast community of food lovers share their reviews and photos, so you have all that you need to make an informed choice.</p>
+
+<h3 style="color:white; text-align:center; text-transform:uppercase;">Building amazing experiences around dining.</h3>
+<p style="color:white; text-align:center; font-size:25px;">Starting with information for over 1 million restaurants (and counting) globally, we're making dining smoother and more enjoyable with services like online ordering and table reservations.</p>
+
+<h3 style="color:white; text-align:center; text-transform:uppercase;">Enabling restaurants to create amazing experiences.</h3>
+<p style="color:white; text-align:center; font-size:25px;">With dedicated engagement and management tools, we're enabling restaurants to spend more time focusing on food itself, which translates directly to better dining experiences.</p>
+</div>
+
+<br><br>
+<div class="container-fluid" style="background:white; text-transform:uppercase;padding:20px; border-left:10px solid black;"><h3>locate us</h3></div>
+<div class="container-fluid">
+<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="304" id="gmap_canvas" src="https://maps.google.com/maps?q=hotel%20limontree&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com">emojilib.com</a></div><style>.mapouter{position:relative;text-align:right;height:304px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:304px;width:100%;}</style></div>
+</div>
+<br><br>
+ <?php
+			include("footer.php");
+			?>
+	</body>
+</html>
