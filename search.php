@@ -212,3 +212,33 @@ ul li a:hover{text-decoration:none;}
 </nav>
 <br><br><br><br>
 
+<!--menu ends-->
+<div class="container" >
+<img src="img/five-points-proposed-hotel-2012.jpg" alt="no Pic Available" height="400px" width="100%">
+</div>
+<div class="container-fluid" >
+<br><br>
+<div class="row">
+   <div class="col-sm-1"></div>
+   <div class="col-sm-10" >
+   <h3 style="color:#01C699;text-transform:uppercase;"><?php echo $row['fld_name']; ?></h3><br><br>
+   <span style="color:#A5A5A5;font-size:25px;text-transform:uppercase;"><i class="fas fa-home"></i></span>&nbsp;&nbsp;<span style="font-family: 'Tangerine', serif; font-weight:bold;font-size:25px; color:#ED2553;"><?php echo $row['fld_address']?></span><br><br>
+   <span style="color:#A5A5A5;font-size:25px;"><i class="fas fa-phone"></i></span>&nbsp;&nbsp;<span style=" font-size:25px; color:#ED2553;"><?php echo $row['fld_phone']?></span><br><br>
+   <span style="color:#A5A5A5;font-size:25px;"><i class="fa fa-mobile" aria-hidden="true"></i></span>&nbsp;&nbsp;<span style=" font-size:25px; color:#ED2553;"><?php echo $row['fld_mob']?></span><br><br>
+   <span style="color:#A5A5A5;font-size:25px;"><i class="fas fa-at"></i></span>&nbsp;&nbsp;<span style=" font-size:25px; color:#ED2553;"><?php echo $row['fld_email']?></span><br><br>
+
+
+   
+   </div>
+   
+   <div class="col-sm-1"></div>
+</div>
+</div>
+
+<!--footer primary-->
+	     <?php
+		 include("footer.php");
+		 ?>
+</body>
+
+</html>
