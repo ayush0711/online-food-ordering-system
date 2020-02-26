@@ -123,3 +123,92 @@ $query=mysqli_query($con,"select tbfood.foodname,tbfood.fldvendor_id,tbfood.cost
 	                            });
 </script>
 <style>
+#aboutus{
+     background-image:url("img/main_spice2.jpg");
+	 background-repeat: no-repeat;
+	 background-attachment: fixed;
+	  background-position: center;
+  
+}
+
+ul li {list-style:none;}
+ul li a{color:black; font-weight:bold;}
+ul li a:hover{text-decoration:none;}
+
+
+</style>
+  </head>
+  
+    
+	<body>
+	
+
+<div id="result" style="position:fixed;top:100; right:50;z-index: 3000;width:350px;background:white;"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+  
+    <a class="navbar-brand" href="index.php"><span style="color:green;font-family: 'Permanent Marker', cursive;">Food Hunt</span></a>
+    <?php
+	if(!empty($cust_id))
+	{
+	?>
+	<a class="navbar-brand" style="color:white; text-decoratio:none;"><i class="far fa-user"><?php if(isset($cust_id)) { echo $qqr['fld_name']; }?></i></a>
+	<?php
+	}
+	?>
+	
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+	
+      <ul class="navbar-nav ml-auto">
+	      
+          
+		  <li class="nav-item">
+		     <a href="index.php" style="color:white;" class="nav-link">Home</a>
+		  </li>
+		  <li class="nav-item">
+		     <a href="aboutus.php" style="color:white;" class="nav-link">About Us</a>
+		  </li>
+		  <li class="nav-item">
+		     <a href="services.php" style="color:white;" class="nav-link">Services</a>
+		  </li>
+		  <li class="nav-item">
+		     <a href="contact.php" style="color:white;" class="nav-link">Contact Us</a>
+		  </li>
+		  <?php
+			if(empty($cust_id))
+			{
+			?>
+			<li class="nav-item">
+			  <a href="form/index.php?msg=you must be login first" class="nav-link"><span style="color:red;  font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"><span style="color:red;" id="cart"  class="badge badge-light">0</span></i></span></a>
+		    </li>
+			
+			<li class="nav-item">
+			<a  class="nav-link"><form method="post"><button class="btn btn-outline-danger my-2 my-sm-0" name="login" type="submit">Log In</button></form></a>
+            </li>
+			<?php
+			}
+			else
+			{
+			?>
+			<li class="nav-item">
+			<a href="form/cart.php" class="nav-link"><form method="post"><span style=" color:green; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"><span style="color:green;" id="cart"  class="badge badge-light"><?php if(isset($re)) { echo $re; }?></span></i></span></form></a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link"><form method="post"><button class="btn btn-outline-success my-2 my-sm-0" name="logout" type="submit">Log Out</button></form></a>
+			</li>
+			<?php
+			}
+			?>
+	  
+		
+        
+      </ul>
+	  
+    </div>
+	
+</nav>
+<br><br><br><br>
+
