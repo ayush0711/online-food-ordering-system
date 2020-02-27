@@ -90,4 +90,65 @@ extract($_REQUEST);
 	
 </nav>
 <br><br><br>
-
+<div class="middle" style="margin:0px auto; border:1px solid #F8F9FA;  width:800px;">
+       <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#ED2553;border-radius:10px 10px 10px 10px;" role="tablist">
+          <li class="nav-item">
+             <a class="nav-link active" style="color:#BDDEFD;" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="true">Register</a>
+          </li>
+		  <li class="nav-item">
+             <a class="nav-link " id="login-tab" style="color:#BDDEFD;" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Log In</a>
+          </li>
+       </ul>
+	   <br><br>
+	   <!--tab 1 starsts-->
+	   <div class="tab-content" id="myTabContent">
+	       <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="home-tab">
+			    <div class="footer" style="color:red;"><?php if(isset($loginmsg)){ echo $loginmsg;}?></div>
+			    <form action="" method="post" enctype="multipart/form-data">
+                      <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" value="<?php if(isset($r_name)) { echo $r_name;}?>" placeholder="Enter Restaurant Name" name="r_name" required/>
+                      </div>
+	                  <div class="form-group">
+                          <label for="name">Email Id:</label>
+                          <input type="email" class="form-control" id="email" value="<?php if(isset($email)) { echo $email;}?>" placeholder="Enter Email" name="email" required/>
+                          <span style="color:red;"><?php if(isset($email_error)){ echo $email_error;} ?></span>
+	                  </div>
+	                 <div class="form-group">
+                         <label for="pswd">Password:</label>
+                         <input type="password" class="form-control" id="pswd" placeholder="Enter Password" name="pswd" required/>
+                     </div>
+                     <div class="form-group">
+                         <label for="mob">Mobile:</label>
+                         <input type="tel" class="form-control" pattern="[7-9]{1}[0-9]{9}" value="<?php if(isset($mob)) { echo $mob;}?>"id="mob" placeholder="9123456578" name="mob" required/>
+                     </div>
+	                 <div class="form-group">
+                          <label for="phone">Phone:</label>
+                          <input type="tel" class="form-control" pattern="[011]{3}[0-7]{7}" id="phone" value="<?php if(isset($phone)) { echo $phone;}?>" placeholder="011-1234567" name="phone" required>
+                     </div>
+	                 <div class="form-group">
+                          <label for="add">Address:</label>
+                          <input type="text" class="form-control" id="add" placeholder="Enter Address" value="<?php if(isset($address)) { echo $address;}?>" name="address" required>
+                     </div>
+	                 <div class="form-group">
+                          <input type="file"  name="logo" required>Upload Logo 
+                     </div>
+                     <button type="submit" id="register" name="register" class="btn btn-outline-primary">Register</button>
+                     
+                </form>
+				<br>
+			</div>
+			<div class="tab-pane fade show" id="login" role="tabpanel" aria-labelledby="home-tab">
+			   <a href="vendor_login.php"><button type="button" style="padding:10px;  width:200px; margin-top:30%; margin-left:40%; margin:0px auto;" class="btn btn-outline-primary" name="login" value="Log In">Log In</button></a>
+			   <br><br><br> <br><br><br> <br><br><br><br><br><br> <br><br><br> <br><br><br>
+			</div>
+	   </div>
+	</div>
+	<br>
+	 <?php
+			include("footer.php");
+			?>
+	 
+	   
+</body>
+</html>
