@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "947539", "dbfood");
+$connect = mysqli_connect("localhost", "root", "", "dbfood");
 $output = '';
 if(isset($_POST["query"]))
 {
