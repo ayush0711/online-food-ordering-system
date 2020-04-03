@@ -221,4 +221,129 @@ ul li a:hover{text-decoration:none;}
 			
 		
       	    </div>	 
-	  
+              <div class="tab-pane fade" id="manageaccount" role="tabpanel" aria-labelledby="manageaccount-tab">
+			    <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="username" value="<?php if(isset($user)){ echo $user;}?>" class="form-control" name="name" readonly="readonly"/>
+                    </div>
+					
+					
+					
+                   <div class="form-group">
+                      <label for="pwd">Password:</label>
+                     <input type="password" name="password" class="form-control" value="<?php if(isset($pass)){ echo $pass;}?>" id="pwd" required/>
+                   </div>
+				   
+				   
+ 
+                  <button type="submit" name="update" style="background:#ED2553; border:1px solid #ED2553;" class="btn btn-primary">Update</button>
+                  <div class="footer" style="color:red;"><?php if(isset($ermsg)) { echo $ermsg; }?><?php if(isset($ermsg2)) { echo $ermsg2; }?></div>
+			 </form>
+			</div>
+			<!--tab 2 ends-->
+			 
+			 <div class="tab-pane fade show" id="ManageVendors" role="tabpanel" aria-labelledby="ManageVendors-tab">
+			    <div class="container">
+	               <table class="table">
+                 <thead>
+                    <tr>
+                        <th scope="col"></th>
+                            <th scope="col">Hotel Id/vendor Id</th>
+                            <th scope="col">Name</th>
+                            
+                            
+                            <th scope="col">Address</th>
+                            <th scope="col">Remove Vendor</th>
+                     </tr>
+                 </thead>
+				 <tbody>
+	<?php
+	$query=mysqli_query($con,"select  * from tblvendor");
+	    while($row=mysqli_fetch_array($query))
+		{
+	
+	?>			 
+                
+                    <tr>
+                        
+						<td><img src="image/restaurant/<?php echo $row['fld_email']."/" .$row['fld_logo'];?>" height="50px" width="100px"></td>
+                        <th scope="row"><?php echo $row['fldvendor_id'];?></th>
+						<td><?php echo $row['fld_name'];?></td>
+						<td><?php echo $row['fld_address'];?></td>
+                        
+                        
+                        
+                        
+                        
+						<form method="post">
+                        <td><a href="#"  style="text-decoration:none; color:white;" onclick="delRecord(<?php echo $row['fldvendor_id']; ?>)"><button type="button" class="btn btn-danger">Remove Vendor</a></a></td>
+                        </form>
+                   </tr>
+		<?php
+		}
+		?>		   
+                </tbody>
+           </table>
+	 
+	 </div>   	
+			 </div>
+			 
+			 <!--tab 4-->
+			 <div class="tab-pane fade" id="orderstatus" role="tabpanel" aria-labelledby="orderstatus-tab">
+               <table class="table">
+			   <th>Order Id</th>
+			   <th>Food Id</th>
+			   <th>Customer Email Id</th>
+			   <th>order Status</th>
+			   <tbody>
+			   <?php			   
+			   $rr=mysqli_query($con,"select * from tblorder");
+			   while($rrr=mysqli_fetch_array($rr))
+			   {
+				   $stat=$rrr['fldstatus'];
+				   $foodid=$rrr['fld_food_id'];
+				   $r_f=mysqli_query($con,"select * from tbfood where food_id='$foodid'");
+				   $r_ff=mysqli_fetch_array($r_f);
+			   
+			   ?>
+			   <tr>
+			   <td><?php echo $rrr['fld_order_id']; ?></td>
+			   <td><a href="searchfood.php?food_id=<?php echo $rrr['fld_food_id']; ?>"><?php echo $rrr['fld_food_id']; ?></td>
+			   <td><?php echo $rrr['fld_email_id']; ?></td>
+			   <?php
+			   if($stat=="cancelled" || $stat=="Out Of Stock")
+			   {
+			   ?>
+			   <td><i style="color:orange;" class="fas fa-exclamation-triangle"></i>&nbsp;<span style="color:red;"><?php echo $rrr['fldstatus']; ?></span></td>
+			   <?php
+			   }
+			   else
+				   
+			   {
+			   ?>
+			   <td><span style="color:green;"><?php echo $rrr['fldstatus']; ?></span></td>
+			   <?php
+			   }
+			   ?>
+			   
+			   </tr>
+			   <?php
+			   }
+			   ?>
+			   </tbody>
+			   </table>
+			</div>
+			 
+      
+	  </div>
+	</div>	 
+	<br><br><br>
+ <?php
+			include("footer.php");
+			?>
+		  
+
+</body>
+	
+</html>	
