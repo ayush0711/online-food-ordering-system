@@ -1,3 +1,43 @@
+<?php 
+session_start();
+include('connection.php');
+ $Vendorid=$_GET['Vendorid'];
+$re=mysqli_query($con,"select * from tbfood where fldvendor_id='$Vendorid'");
+$re_arr=mysqli_fetch_array($re);
+$re_no=mysqli_num_rows($re);
+if($re_no)
+{
+	unset($_SESSION['id']);
+	 $vend_info=mysqli_query($con,"select * from tblvendor where fldvendor_id='$Vendorid'");
+	 $vend_row=mysqli_fetch_array($vend_info);
+	  $im=$vend_row['fld_logo'];
+	  $em=$vend_row['fld_email'];
+	  $food_img=$re_arr['fldimage'];
+	 unlink("image/restaurant/$em/foodimages/$food_img");
+	// rmdir("image/restaurant/$em/foodimages");
+	 unlink("image/restaurant/$em/$im");
+	 //rmdir("image/restaurant/$em");
+	 mysqli_query($con,"delete from tbfood where fldvendor_id='$Vendorid'");
+	 mysqli_query($con,"delete from tblvendor where fldvendor_id='$Vendorid'");
+	 header( "refresh:5;url=dashboard.php" );
+	 
+}
+else
+{
+	unset($_SESSION['id']);
+	 $vend_info=mysqli_query($con,"select * from tblvendor where fldvendor_id='$Vendorid'");
+	 $vend_row=mysqli_fetch_array($vend_info);
+	  $im=$vend_row['fld_logo'];
+	  $em=$vend_row['fld_email'];
+	 mysqli_query($con,"delete from tblvendor where fldvendor_id='$Vendorid'");
+	 unlink("image/restaurant/$em/$im");
+	 rmdir("image/restaurant/$em/foodimages");
+	 rmdir("image/restaurant/$em");
+	 header( "refresh:5;url=dashboard.php" );
+}
+
+?>
+
 <html>
   <head>
      <title>Admin control panel</title>
@@ -17,16 +57,6 @@ p {
   margin-top: 0px;
 }
   </style>
-  <script>
-    $("dcoument").ready(function(){
-		
-		if(confirm("Please login With your New Password")== true)
-		{
-			window.location.href="admin.php";
-		}
-		
-	});
-  </script>
   
   </head>
   
@@ -69,4 +99,3 @@ timer();
 </script>
 
 	</body>
-</html>

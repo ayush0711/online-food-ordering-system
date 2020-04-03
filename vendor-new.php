@@ -12,7 +12,7 @@ extract($_REQUEST);
 	$sql=mysqli_query($con,"select * from tblvendor where fld_email='$email'");
     if(mysqli_num_rows($sql))
 	{
-	  $email_error="This Email Id is laready registered with us";
+	  $email_error="This Email Id is already registered with us";
 	}
 	else
 	{
