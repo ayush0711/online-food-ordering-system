@@ -86,3 +86,50 @@ while($row=mysqli_fetch_array($query))
 	 
 	 
 	 <script>
+
+     //search product function
+     $(document).ready(function(){
+	
+    $("#search_text").keypress(function()
+             {
+              load_data();
+              function load_data(query)
+                  {
+                   $.ajax({
+                   url:"fetch.php",
+                   method:"post",
+                   data:{query:query},
+                   success:function(data)
+                                {
+                                  $('#result').html(data);
+                                 }
+                           });
+                    }
+
+                  $('#search_text').keyup(function(){
+                  var search = $(this).val();
+                      if(search != '')
+                          {
+                            load_data(search);
+                           }
+                       else
+                        {
+                        load_data();			
+                         }
+                       });
+                     });
+                   });
+</script>
+<style>
+ul li {list-style:none;}
+ul li a{color:black; font-weight:bold;}
+ul li a:hover{text-decoration:none;}
+</style>
+</head>
+
+
+<body>
+
+
+<div id="result" style="position:fixed;top:100; right:50;z-index: 3000;width:350px;background:white;"></div>
+
