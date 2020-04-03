@@ -225,4 +225,10 @@ ul li a:hover{text-decoration:none;}
 </div>
 </div>
 
- 
+<?php
+			include("footer.php");
+			?>
+
+
+	</body>
+</html>
