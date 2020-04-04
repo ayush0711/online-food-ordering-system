@@ -210,3 +210,44 @@ if(isset($logout))
 	   <div class="tab-content" id="myTabContent">
 	   
             <div class="tab-pane fade show active" id="viewitem" role="tabpanel" aria-labelledby="home-tab">
+
+             <!--add Product-->
+             <form action="" method="post" enctype="multipart/form-data">
+                                     <div class="form-group"><!--food_name-->
+                                     <label for="food_name">Food Name:</label>
+                                            <input type="text" class="form-control" id="food_name" value="<?php if(isset($rfoodname)) { echo $rfoodname;}?>" placeholder="Enter Food Name" name="food_name" required>
+                                     </div>
+									 
+									 
+                                     <div class="form-group"><!--cost-->
+                                            <label for="cost">Cost :</label>
+                                            <input type="number" class="form-control" id="cost"  value="<?php if(isset($rcost)) { echo $rcost;}?>" placeholder="10000" name="cost" required>
+                                     </div>
+									 
+									 
+	                                 <div class="form-group"><!--cuisines-->
+                                            <label for="cuisines">Cuisines :</label>
+                                            <input type="text" class="form-control" id="cuisines" value="<?php if(isset($rcuisines)) { echo $rcuisines;}?>" placeholder="Enter Cuisines" name="cuisines" required>
+                                    </div>
+							        
+							        <div class="form-group"><!--payment_mode-->
+									<?php
+			                         
+			                          $pay=explode(",",$rpaymentmode);
+			
+			                           ?>
+                                         <input type="checkbox" <?php if(in_array("COD",$pay)) { echo "checked"; } ?> name="chk[]" value="COD"/>Cash On Delivery
+			                             <input type="checkbox" <?php if(in_array("Online Payment",$pay)) { echo "checked"; } ?> name="chk[]" value="Online Payment"/>Online Payment
+								         <br>
+								        <span style="color:red;"><?php if(isset($paymessage)){ echo $paymessage;}?></span>
+			      			        </div>
+							   
+	                                <div class="form-group">
+									
+                                         <input type="file" accept="image/*" name="food_pic"/>Food Snaps 
+                                    </div>
+   
+                                    <button type="submit" name="update" class="btn btn-primary">Update Item</button>
+									<br>
+									
+                               </form>      	 
