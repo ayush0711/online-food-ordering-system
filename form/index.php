@@ -152,4 +152,21 @@ if(isset($register))
 	   <br><br>
 	   <div class="tab-content" id="myTabContent">
 
-       
+        <!--login Section-- starts-->
+        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="home-tab">
+			    <div class="footer" style="color:red;"><?php if(isset($loginmsg)){ echo $loginmsg;}?></div>
+			  <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="email">Email address:</label>
+                      <input type="email" class="form-control" name="email" id="email" required/>
+                    </div>
+                   <div class="form-group">
+                      <label for="pwd">Password:</label>
+                     <input type="password" name="password" class="form-control" id="pwd" required/>
+                   </div>
+ 
+                  <button type="submit" name="login" style="background:#ED2553; border:1px solid #ED2553;" class="btn btn-primary">Login In</button>
+                  <div class="footer" style="color:red;"><?php if(isset($ermsg)) { echo $ermsg; }?><?php if(isset($ermsg2)) { echo $ermsg2; }?></div>
+			 </form>
+			</div>
+			<!--login Section-- ends-->
