@@ -1,0 +1,117 @@
+<?php
+session_start();
+include("connection.php");
+extract($_REQUEST);
+if(isset($_SESSION['id']))
+{
+if(!empty($_GET['food_id']))
+{
+	$food_id=$_GET['food_id'];
+	$query=mysqli_query($con,"select * from tbfood   where food_id='$food_id'");
+if(mysqli_num_rows($query))
+{   
+	 $row=mysqli_fetch_array($query);
+     $rfoodname=$row['foodname'];
+     $rcost=$row['cost'];
+     $rcuisines=$row['cuisines'];
+     $rpaymentmode=$row['paymentmode'];
+     $rfldimageold=$row['fldimage'];
+	 $em=$_SESSION['id'];
+	
+}
+else
+{
+	header("location:food.php");
+}
+    
+
+
+	
+}
+else
+{
+	
+	header("location:food.php");
+	
+	
+}
+}
+else
+{
+	header("location:vendor_login.php");
+}
+if(isset($update))
+{
+   if(!empty($_SESSION['id']))	
+   {
+    $paymentmode=implode(",",$chk);
+    $img_name=$_FILES['food_pic']['name'];
+    
+    
+    if(!empty($chk)) 
+	{
+		if(empty($img_name))
+			
+	       {
+		          $paymentmode=implode(",",$chk);
+	              if(mysqli_query($con,"update  tbfood  set foodname='$food_name',cost='$cost',cuisines='$cuisines',paymentmode='$paymentmode' where food_id='$food_id'"))
+	   
+	                {
+						header("location:update_food.php?food_id=$food_id");
+		              //echo "update with old pic";
+		              //move_uploaded_file($_FILES['food_pic']['tmp_name'],"../image/restaurant/$em/foodimages/".$_FILES['food_pic']['name']);
+	                 }
+	              else{
+		               echo "failed";
+	                  }
+	        }
+			
+			
+	
+	     else
+		 {
+			     $paymentmode=implode(",",$chk);
+			     echo $food_name."<br>";
+			     echo $cost."<br>";
+			     echo $cuisines."<br>";
+			     echo $paymentmode."<br>";
+			     echo $img_name."<br>";
+	             if(mysqli_query($con,"update  tbfood  set foodname='$food_name',cost='$cost',cuisines='$cuisines',paymentmode='$paymentmode', fldimage='$img_name' where food_id='$food_id'"))
+	
+	                {
+		             echo "update with new pic";
+		             move_uploaded_file($_FILES['food_pic']['tmp_name'],"image/restaurant/$em/foodimages/".$_FILES['food_pic']['name']);
+	                 unlink("image/restaurant/$em/foodimages/$rfldimageold");
+					 header("location:update_food.php?food_id=$food_id");
+					}
+				 else
+				 {
+					 echo "failed to upload new pic";
+				}					 
+		 }
+	
+	}
+	
+	else
+	{
+		
+		
+	
+      $paymessage="please select a payment mode";
+      
+
+  
+    }
+   }
+   else
+   {
+	   header("location:vendor_login.php");
+   }
+}
+if(isset($logout))
+{
+	session_destroy();
+	header("location:index.php");
+}
+?>
+
