@@ -190,3 +190,23 @@ if(isset($logout))
 </nav>
 
 <!--navbar ends-->
+
+
+
+<br><br>
+<div class="middle" style=" position:fixed; padding:40px; border:1px solid #ED2553;  width:100%;">
+       <!--tab heading-->
+	   <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#ED2553;border-radius:10px 10px 10px 10px;" role="tablist">
+          <li class="nav-item">
+             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#viewitem" role="tab" aria-controls="home" aria-selected="true">Update Products</a>
+          </li>
+         
+              <a class="nav-link" style="color:white;" id="profile-tab"  aria-selected="false">Product Details</a>
+         
+		  
+       </ul>
+	   <br><br>
+	<!--tab 1 starts-->   
+	   <div class="tab-content" id="myTabContent">
+	   
+            <div class="tab-pane fade show active" id="viewitem" role="tabpanel" aria-labelledby="home-tab">
