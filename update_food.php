@@ -28,3 +28,16 @@ p {
   </style>
   
   </head>
+
+  <body>
+	 <div class="container" style="margin:0px auto;text-align:center;">
+     <p style="color:green;"> Please Wait We Are Updating</p>
+	 <img src="img/lg.walking-clock-preloader.gif"/></div>
+	   <h1><time>00</time></h1>
+<script>
+var h1 = document.getElementsByTagName('h1')[0],
+    start = document.getElementById('start'),
+    stop = document.getElementById('stop'),
+    clear = document.getElementById('clear'),
+    seconds = 0, minutes = 0, hours = 0,
+    t;
