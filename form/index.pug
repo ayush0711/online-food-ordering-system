@@ -1,0 +1,11 @@
+// Mixins
+mixin input(type, label)
+  .input-container
+    input(type='#{type}' id='#{label}' required)
+    label(for='#{label}')=label
+    .bar
+mixin button(text)
+  .button-container
+    button
+      span=text
+
