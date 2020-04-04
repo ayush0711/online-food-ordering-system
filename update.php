@@ -250,4 +250,13 @@ if(isset($logout))
                                     <button type="submit" name="update" class="btn btn-primary">Update Item</button>
 									<br>
 									
-                               </form>      	 
+                               </form>     
+
+
+                               		 
+      
+	  </div>
+	</div>  
+	
+</body>
+</html> 	 
