@@ -170,7 +170,7 @@ if(isset($register))
 			 </form>
 			</div>
 			<!--login Section-- ends-->
-            
+
             <!--new account Section-- starts-->
             <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="profile-tab">
 			    <form method="post" enctype="multipart/form-data">
@@ -202,3 +202,9 @@ if(isset($register))
       </div>
 	  </div>
 	  <br><br> <br><br> <br><br>
+
+      <?php
+include("footer.php");
+?>
+	   
+</body>
