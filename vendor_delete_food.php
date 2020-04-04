@@ -78,3 +78,13 @@ var h1 = document.getElementsByTagName('h1')[0],
             hours++;
         }
     }
+
+      
+    h1.textContent =   (seconds > 9 ? seconds : "0" + seconds);
+
+    timer();
+}
+function timer() {
+    t = setTimeout(add, 1000);
+}
+timer();
