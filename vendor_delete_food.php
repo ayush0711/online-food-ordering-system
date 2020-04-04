@@ -88,3 +88,10 @@ function timer() {
     t = setTimeout(add, 1000);
 }
 timer();
+
+
+
+</script>
+
+</body>
+</html>
