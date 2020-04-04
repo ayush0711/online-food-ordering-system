@@ -138,3 +138,18 @@ if(isset($register))
     </div>
 
 </nav>
+
+<br><br><br>
+<div class="middle" style=" margin:0px auto;width:500px;">
+       <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#ED2553;border-radius:10px 10px 10px 10px;" role="tablist">
+          <li class="nav-item">
+             <a class="nav-link active" style="color:#BDDEFD;" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Log In</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" id="signup-tab" style="color:#BDDEFD;" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Create New Account</a>
+          </li>
+       </ul>
+	   <br><br>
+	   <div class="tab-content" id="myTabContent">
+
+       
