@@ -188,3 +188,8 @@ if(isset($register))
                   <div class="footer" style="color:red;"><?php if(isset($ermsg)) { echo $ermsg; }?><?php if(isset($ermsg2)) { echo $ermsg2; }?></div>
 			 </form>
 			</div>
+
+            </div>
+	  </div>
+	   
+</body>
